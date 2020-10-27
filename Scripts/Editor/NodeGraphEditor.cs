@@ -14,6 +14,7 @@ namespace XNodeEditor {
         protected bool isRenaming;
 
         public virtual void OnGUI() { }
+        public virtual void OnEarlyGUI() { }
 
         /// <summary> Called when opened by NodeEditorWindow </summary>
         public virtual void OnOpen() { }
