@@ -38,7 +38,8 @@ namespace XNodeEditor {
             // serializedObject.Update(); must go at the start of an inspector gui, and
             // serializedObject.ApplyModifiedProperties(); goes at the end.
             serializedObject.Update();
-            string[] excludes = { "m_Script", "graph", "position", "ports" };
+            // TODO The last two entries are a bit of a hack. This could be fixed, by making the 'before' and 'after' ports dynamic (in RunnableNode)
+            string[] excludes = { "m_Script", "graph", "position", "ports", "before", "then" };
 
 #if ODIN_INSPECTOR
             InspectorUtilities.BeginDrawPropertyTree(objectTree, true);
@@ -93,7 +94,7 @@ namespace XNodeEditor {
             Color color;
             if (type.TryGetAttributeTint(out color)) return color;
             // Return default color (grey)
-            else return DEFAULTCOLOR;
+            else return NodeEditorPreferences.GetSettings().nodeColor;
         }
 
         public virtual GUIStyle GetBodyStyle() {

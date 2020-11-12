@@ -8,6 +8,7 @@ using Object = UnityEngine.Object;
 namespace XNodeEditor {
     [InitializeOnLoad]
     public partial class NodeEditorWindow : EditorWindow {
+        public const string WINDOW_NAME = "Node Editor";
         public static NodeEditorWindow current;
 
         /// <summary> Stores node positions for all nodePorts. </summary>
@@ -81,10 +82,10 @@ namespace XNodeEditor {
                 graphEditor.OnWindowFocus();
                 if (NodeEditorPreferences.GetSettings().autoSave) AssetDatabase.SaveAssets();
             }
-            
+
             dragThreshold = Math.Max(1f, Screen.width / 1000f);
         }
-        
+
         void OnLostFocus() {
             if (graphEditor != null) graphEditor.OnWindowFocusLost();
         }
@@ -115,7 +116,7 @@ namespace XNodeEditor {
         /// <summary> Create editor window </summary>
         public static NodeEditorWindow Init() {
             NodeEditorWindow w = CreateInstance<NodeEditorWindow>();
-            w.titleContent = new GUIContent("xNode");
+            w.titleContent = new GUIContent(WINDOW_NAME);
             w.wantsMouseMove = true;
             w.Show();
             return w;
@@ -149,7 +150,7 @@ namespace XNodeEditor {
         }
 
         public Vector2 GridToWindowPosition(Vector2 gridPosition) {
-            return (position.size * 0.5f) + (panOffset / zoom) + (gridPosition / zoom);
+            return (position.size * 0.5f) + (panOffset / zoom) + (gridPosition / zoom) + new Vector2(-1, 0);
         }
 
         public Rect GridToWindowRectNoClipped(Rect gridRect) {
@@ -199,7 +200,7 @@ namespace XNodeEditor {
         public static NodeEditorWindow Open(XNode.NodeGraph graph) {
             if (!graph) return null;
 
-            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "xNode", true) as NodeEditorWindow;
+            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, WINDOW_NAME, true) as NodeEditorWindow;
             w.wantsMouseMove = true;
             w.graph = graph;
             return w;

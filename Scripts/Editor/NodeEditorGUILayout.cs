@@ -169,6 +169,7 @@ namespace XNodeEditor {
 
                 Color backgroundColor = NodeEditorWindow.current.graphEditor.GetPortBackgroundColor(port);
                 Color col = NodeEditorWindow.current.graphEditor.GetPortColor(port);
+                if(!port.IsConnected) col = new Color(col.r, col.g, col.b, 0.5f);
                 DrawPortHandle(rect, backgroundColor, col);
 
                 // Register the handle position
@@ -217,14 +218,17 @@ namespace XNodeEditor {
         }
 
         /// <summary> Make a simple port field. </summary>
-        public static void PortField(Vector2 position, XNode.NodePort port) {
+        public static void PortField(Vector2 position, XNode.NodePort port, bool useAltTexture=false) {
             if (port == null) return;
 
             Rect rect = new Rect(position, new Vector2(16, 16));
 
             Color backgroundColor = NodeEditorWindow.current.graphEditor.GetPortBackgroundColor(port);
             Color col = NodeEditorWindow.current.graphEditor.GetPortColor(port);
-            DrawPortHandle(rect, backgroundColor, col);
+
+            if(!port.IsConnected) col = new Color(col.r, col.g, col.b, 0.5f);
+
+            DrawPortHandle(rect, backgroundColor, col, useAltTexture);
 
             // Register the handle position
             Vector2 portPos = rect.center;
@@ -267,12 +271,12 @@ namespace XNodeEditor {
             GUILayout.EndHorizontal();
         }
 
-        public static void DrawPortHandle(Rect rect, Color backgroundColor, Color typeColor) {
+        public static void DrawPortHandle(Rect rect, Color backgroundColor, Color typeColor, bool useAltTexture = false) {
             Color col = GUI.color;
             GUI.color = backgroundColor;
-            GUI.DrawTexture(rect, NodeEditorResources.dotOuter);
+            GUI.DrawTexture(rect, useAltTexture? NodeEditorResources.dotOuter2 : NodeEditorResources.dotOuter);
             GUI.color = typeColor;
-            GUI.DrawTexture(rect, NodeEditorResources.dot);
+            GUI.DrawTexture(rect, useAltTexture? NodeEditorResources.dot2 : NodeEditorResources.dot);
             GUI.color = col;
         }
 

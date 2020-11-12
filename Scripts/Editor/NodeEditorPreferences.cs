@@ -32,6 +32,7 @@ namespace XNodeEditor {
             [UnityEngine.Serialization.FormerlySerializedAs("zoomOutLimit")]
             public float maxZoom = 5f;
             public float minZoom = 1f;
+            public Color32 nodeColor = new Color32(128, 128, 128, 255);
             public Color32 highlightColor = new Color32(255, 255, 255, 255);
             public bool gridSnap = true;
             public bool autoSave = true;
@@ -160,6 +161,7 @@ namespace XNodeEditor {
         private static void NodeSettingsGUI(string key, Settings settings) {
             //Label
             EditorGUILayout.LabelField("Node", EditorStyles.boldLabel);
+            settings.nodeColor = EditorGUILayout.ColorField("Node Color", settings.nodeColor);
             settings.highlightColor = EditorGUILayout.ColorField("Selection", settings.highlightColor);
             settings.noodlePath = (NoodlePath) EditorGUILayout.EnumPopup("Noodle path", (Enum) settings.noodlePath);
             settings.noodleThickness = EditorGUILayout.FloatField(new GUIContent("Noodle thickness", "Noodle Thickness of the node connections"), settings.noodleThickness);
