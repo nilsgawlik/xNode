@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    sodipodi:docname="symbols_etc.svg"
-   inkscape:export-filename="D:\projects\_WISE20_21\LevelAlchemistDevProject\Assets\LevelAlchemist\xNode\Scripts\Editor\Resources\xnode_dot_outer2.png"
+   inkscape:export-filename="D:\projects\_WISE20_21\LevelAlchemistDevProject\Assets\LevelAlchemist\xNode\Scripts\Editor\Resources\xnode_dot2.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
@@ -67,14 +67,14 @@
      transform="translate(0,-263.13334)">
     <path
        style="opacity:0.97000002;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.23333311;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.99215686"
-       d="m 16.933333,290.65001 10.583333,-8.46666 V 271.60001 H 6.3499993 l 2e-7,10.58334 z"
+       d="m 59.266665,290.65001 10.583333,-8.46666 V 271.60001 H 48.683331 l 10e-7,10.58334 z"
        id="path4538"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc" />
     <path
        inkscape:connector-curvature="0"
        id="path4542"
-       d="m -25.399999,290.65001 10.583333,-8.46666 v -10.58334 h -21.166666 v 10.58334 z"
+       d="m 16.933333,290.65001 10.583333,-8.46666 V 271.60001 H 6.3499998 v 10.58334 z"
        style="opacity:0.97000002;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:4.23333311;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.99215686"
        sodipodi:nodetypes="cccccc" />
   </g>
