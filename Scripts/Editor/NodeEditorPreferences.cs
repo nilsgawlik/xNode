@@ -30,9 +30,9 @@ namespace XNodeEditor {
             public float zoomOutLimit { get { return maxZoom; } set { maxZoom = value; } }
 
             [UnityEngine.Serialization.FormerlySerializedAs("zoomOutLimit")]
-            public float maxZoom = 5f;
-            public float minZoom = 1f;
-            public Color32 nodeColor = new Color32(128, 128, 128, 255);
+            public float maxZoom = 12f;
+            public float minZoom = 0.2f;
+            public Color32 nodeColor = new Color32(88, 88, 88, 255);
             public Color32 highlightColor = new Color32(255, 255, 255, 255);
             public bool gridSnap = true;
             public bool autoSave = true;
@@ -42,7 +42,7 @@ namespace XNodeEditor {
             public bool portTooltips = true;
             [SerializeField] private string typeColorsData = "";
             [NonSerialized] public Dictionary<string, Color> typeColors = new Dictionary<string, Color>();
-            [FormerlySerializedAs("noodleType")] public NoodlePath noodlePath = NoodlePath.Curvy;
+            [FormerlySerializedAs("noodleType")] public NoodlePath noodlePath = NoodlePath.Straight;
             public float noodleThickness = 2f;
 
             public NoodleStroke noodleStroke = NoodleStroke.Full;
@@ -71,6 +71,10 @@ namespace XNodeEditor {
                     if (ColorUtility.TryParseHtmlString("#" + data[i + 1], out col)) {
                         typeColors.Add(data[i], col);
                     }
+                }
+
+                if(!typeColors.ContainsKey("LevelAlchemist.ActionPort")) {
+                    typeColors["LevelAlchemist.ActionPort"] = new Color(1, 1, 1);
                 }
             }
 
